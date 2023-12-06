@@ -54,7 +54,7 @@ namespace Pfim
                 case 24:
                     return new DdsLoadInfo(false, rgbSwapped, false, 1, 3, 24, ImageFormat.Rgb24);
                 case 32:
-                    return new DdsLoadInfo(false, rgbSwapped, false, 1, 4, 32, ImageFormat.Rgba32);
+                    return new DdsLoadInfo(false, rgbSwapped, false, 1, 4, 32, ThirtyTwoBitImageFormat());
                 default:
                     throw new Exception($"Unrecognized rgb bit count: {Header.PixelFormat.RGBBitCount}");
             }
@@ -90,6 +90,25 @@ namespace Pfim
             }
 
             return pf.GBitMask == 0x7e0 ? ImageFormat.R5g6b5 : ImageFormat.R5g5b5;
+        }
+
+        private ImageFormat ThirtyTwoBitImageFormat()
+        {
+            var pf = Header.PixelFormat;
+
+            if (pf.RBitMask == 0xFF &&
+                pf.GBitMask == 0xFF00 &&
+                pf.BBitMask == 0xFF0000 &&
+                pf.ABitMask == 0xFF000000)
+                return ImageFormat.Rgba32;
+
+            if (pf.RBitMask == 0xFFFF &&
+                pf.GBitMask == 0xFFFF0000 &&
+                pf.BBitMask == 0 &&
+                pf.ABitMask == 0)
+                return ImageFormat.Ra16;
+
+            throw new NotImplementedException("Unrecognized 32-bit image format");
         }
 
         /// <summary>Calculates the number of bytes to hold image data</summary>

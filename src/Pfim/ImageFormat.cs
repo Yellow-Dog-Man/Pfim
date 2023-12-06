@@ -27,6 +27,11 @@
         /// <summary>
         /// Red, green, blue, and alpha are 8 bits apiece
         /// </summary>
-        Rgba32
+        Rgba32,
+
+        /// <summary>
+        /// Red and green, each 16 bits apiece
+        /// </summary>
+        Rg32,
     }
 }
