@@ -48,10 +48,9 @@ namespace Pfim
             switch (_bitsPerPixel ?? Header.PixelFormat.RGBBitCount)
             {
                 case 8:
-                    return new DdsLoadInfo(false, rgbSwapped, true, 1, 1, 8, ImageFormat.Rgb8);
+                    return new DdsLoadInfo(false, rgbSwapped, true, 1, 1, 8, EightBitImageFormat());
                 case 16:
-                    ImageFormat format = SixteenBitImageFormat();
-                    return new DdsLoadInfo(false, rgbSwapped, false, 1, 2, 16, format);
+                    return new DdsLoadInfo(false, rgbSwapped, false, 1, 2, 16, SixteenBitImageFormat());
                 case 24:
                     return new DdsLoadInfo(false, rgbSwapped, false, 1, 3, 24, ImageFormat.Rgb24);
                 case 32:
@@ -59,6 +58,16 @@ namespace Pfim
                 default:
                     throw new Exception($"Unrecognized rgb bit count: {Header.PixelFormat.RGBBitCount}");
             }
+        }
+
+        private ImageFormat EightBitImageFormat()
+        {
+            var pf = Header.PixelFormat;
+
+            if (pf.ABitMask == 0xFF && pf.RBitMask == 0 && pf.GBitMask == 0 && pf.BBitMask == 0)
+                return ImageFormat.A8;
+
+            throw new NotImplementedException("Unrecognized 8-bit image format");
         }
 
         private ImageFormat SixteenBitImageFormat()
