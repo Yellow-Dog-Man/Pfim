@@ -106,7 +106,7 @@ namespace Pfim
                 pf.GBitMask == 0xFFFF0000 &&
                 pf.BBitMask == 0 &&
                 pf.ABitMask == 0)
-                return ImageFormat.Ra16;
+                return ImageFormat.Rg32;
 
             throw new NotImplementedException("Unrecognized 32-bit image format");
         }
