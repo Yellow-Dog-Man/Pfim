@@ -6,6 +6,9 @@
         /// <summary>Red, green, and blue are the same values contained in a single byte</summary>
         Rgb8,
 
+        /// <summary>Red and alpha only, contained in two bytes</summary>
+        Ra16,
+
         /// <summary>Red, green, and blue are contained in a two bytes</summary>
         R5g5b5,
 

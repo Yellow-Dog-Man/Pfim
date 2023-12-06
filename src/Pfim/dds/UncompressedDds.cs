@@ -70,6 +70,11 @@ namespace Pfim
                 return ImageFormat.Rgba16;
             }
 
+            if(pf.ABitMask == 0xFF00 && pf.RBitMask == 0xFF && pf.GBitMask == 0 && pf.BBitMask == 0)
+            {
+                return ImageFormat.Ra16;
+            }
+
             if (pf.PixelFormatFlags.HasFlag(DdsPixelFormatFlags.AlphaPixels))
             {
                 return ImageFormat.R5g5b5a1;
