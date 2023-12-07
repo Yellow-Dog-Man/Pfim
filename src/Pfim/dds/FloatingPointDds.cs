@@ -33,6 +33,14 @@ namespace Pfim
                     _bitsPerPixel = 32;
                     break;
 
+                case ImageFormat.Rg_FP16:
+                    _bitsPerPixel = 16 * 2;
+                    break;
+
+                case ImageFormat.Rg_FP32:
+                    _bitsPerPixel = 32 * 2;
+                    break;
+
                 case ImageFormat.Rgba_FP16:
                     _bitsPerPixel = 16 * 4;
                     break;

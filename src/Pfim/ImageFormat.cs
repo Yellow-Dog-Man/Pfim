@@ -39,6 +39,8 @@
         /// </summary>
         R_FP16,
         R_FP32,
+        Rg_FP16,
+        Rg_FP32,
         Rgba_FP16,
         Rgba_FP32,
     }

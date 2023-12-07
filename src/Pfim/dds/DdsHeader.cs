@@ -16,8 +16,11 @@ namespace Pfim
         /// </summary>
         None = 0,
 
+        FP16 = 111,
+        FP16x2 = 112,
         FP16x4 = 113,
         FP32 = 114,
+        FP32x2 = 115,
         FP32x4 = 116,
 
         /// <summary>
