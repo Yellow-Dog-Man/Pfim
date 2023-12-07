@@ -23,7 +23,7 @@ namespace Pfim
 
         internal UncompressedDds(DdsHeader header, PfimConfig config) : base(header, config)
         {
-            
+
         }
 
         public override int BitsPerPixel => ImageInfo().Depth;
@@ -79,7 +79,7 @@ namespace Pfim
                 return ImageFormat.Rgba16;
             }
 
-            if(pf.ABitMask == 0xFF00 && pf.RBitMask == 0xFF && pf.GBitMask == 0 && pf.BBitMask == 0)
+            if (pf.ABitMask == 0xFF00 && pf.RBitMask == 0xFF && pf.GBitMask == 0 && pf.BBitMask == 0)
             {
                 return ImageFormat.Ra16;
             }
@@ -99,6 +99,12 @@ namespace Pfim
             if (pf.RBitMask == 0xFF &&
                 pf.GBitMask == 0xFF00 &&
                 pf.BBitMask == 0xFF0000 &&
+                pf.ABitMask == 0xFF000000)
+                return ImageFormat.Rgba32;
+
+            if (pf.RBitMask == 0xFF0000 &&
+                pf.GBitMask == 0xFF00 &&
+                pf.BBitMask == 0xFF &&
                 pf.ABitMask == 0xFF000000)
                 return ImageFormat.Rgba32;
 
@@ -169,8 +175,8 @@ namespace Pfim
             var totalLen = AllocateMipMaps(imageInfo);
             byte[] data = config.Allocator.Rent(totalLen);
 
-            var stride = Util.Stride((int) Header.Width, BitsPerPixel);
-            var width = (int) Header.Width;
+            var stride = Util.Stride((int)Header.Width, BitsPerPixel);
+            var width = (int)Header.Width;
             var len = DataLen;
 
             if (width * BytesPerPixel == stride)
@@ -200,7 +206,7 @@ namespace Pfim
                 switch (imageInfo.Format)
                 {
                     case ImageFormat.Rgb24:
-                        SwapLevelRgb24(data, new MipMapOffset(width, (int) Header.Height, stride, 0, 0));
+                        SwapLevelRgb24(data, new MipMapOffset(width, (int)Header.Height, stride, 0, 0));
                         foreach (var mip in _mipMaps)
                         {
                             SwapLevelRgb24(data, mip);
@@ -217,9 +223,9 @@ namespace Pfim
                     case ImageFormat.Rgba16:
                         for (int i = 0; i < totalLen; i += 2)
                         {
-                            byte temp = (byte) (data[i] & 0xF);
-                            data[i] = (byte) ((data[i] & 0xF0) + (data[i + 1] & 0XF));
-                            data[i + 1] = (byte) ((data[i + 1] & 0xF0) + temp);
+                            byte temp = (byte)(data[i] & 0xF);
+                            data[i] = (byte)((data[i] & 0xF0) + (data[i + 1] & 0XF));
+                            data[i + 1] = (byte)((data[i + 1] & 0xF0) + temp);
 
                         }
                         break;
