@@ -223,6 +223,15 @@ namespace Pfim
 
                         }
                         break;
+
+                    case ImageFormat.Rg32:
+                        for (int i = 0; i < totalLen; i += 4)
+                        {
+                            (data[i], data[i + 2]) = (data[i + 2], data[i]);
+                            (data[i + 1], data[i + 3]) = (data[i + 3], data[i + 1]);
+                        }
+                        break;
+
                     default:
                         throw new Exception($"Do not know how to swap {imageInfo.Format}");
                 }

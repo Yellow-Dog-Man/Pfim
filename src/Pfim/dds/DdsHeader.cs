@@ -16,6 +16,10 @@ namespace Pfim
         /// </summary>
         None = 0,
 
+        FP16x4 = 113,
+        FP32 = 114,
+        FP32x4 = 116,
+
         /// <summary>
         /// <see cref="Dxt1Dds"/>. Also known as BC1
         /// </summary>

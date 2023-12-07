@@ -33,5 +33,13 @@
         /// Red and green, each 16 bits apiece
         /// </summary>
         Rg32,
+
+        /// <summary>
+        /// Floating point formats
+        /// </summary>
+        R_FP16,
+        R_FP32,
+        Rgba_FP16,
+        Rgba_FP32,
     }
 }

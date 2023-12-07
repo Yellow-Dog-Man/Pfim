@@ -61,6 +61,23 @@ namespace Pfim
             Dds dds;
             switch (header.PixelFormat.FourCC)
             {
+                // I haven't found a sample of this one yet, so I'm not sure on the code
+                //case CompressionAlgorithm.FP16:
+                //    dds = new FloatingPointDds(ImageFormat.R_FP16, header, config);
+                //    break;
+
+                case CompressionAlgorithm.FP16x4:
+                    dds = new FloatingPointDds(ImageFormat.Rgba_FP16, header, config);
+                    break;
+
+                case CompressionAlgorithm.FP32:
+                    dds = new FloatingPointDds(ImageFormat.R_FP32, header, config);
+                    break;
+
+                case CompressionAlgorithm.FP32x4:
+                    dds = new FloatingPointDds(ImageFormat.Rgba_FP32, header, config);
+                    break;
+
                 case CompressionAlgorithm.D3DFMT_DXT1:
                     dds = new Dxt1Dds(header, config);
                     break;
