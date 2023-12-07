@@ -96,6 +96,10 @@ namespace Pfim
         {
             var pf = Header.PixelFormat;
 
+            // This is for DX10 formats
+            if (pf.RBitMask == 0 && pf.GBitMask == 0 && pf.BBitMask == 0 && pf.ABitMask == 0)
+                return ImageFormat.Rgba32;
+
             if (pf.RBitMask == 0xFF &&
                 pf.GBitMask == 0xFF00 &&
                 pf.BBitMask == 0xFF0000 &&
