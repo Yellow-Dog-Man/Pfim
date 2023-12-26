@@ -106,7 +106,7 @@ namespace Pfim.Viewer
                     return PixelFormats.Bgr24;
                 case ImageFormat.Rgba32:
                     return PixelFormats.Bgra32;
-                case ImageFormat.Rgb8:
+                case ImageFormat.R8:
                     return PixelFormats.Gray8;
                 case ImageFormat.R5g5b5a1:
                 case ImageFormat.R5g5b5:

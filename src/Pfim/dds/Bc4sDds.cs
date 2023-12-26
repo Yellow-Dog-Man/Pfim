@@ -14,7 +14,7 @@ namespace Pfim.dds
         }
 
         public override int BitsPerPixel => 8;
-        public override ImageFormat Format => ImageFormat.Rgb8;
+        public override ImageFormat Format => ImageFormat.R8;
         protected override byte PixelDepthBytes => 1;
         protected override byte DivSize => 4;
         protected override byte CompressedBytesPerBlock => 8;

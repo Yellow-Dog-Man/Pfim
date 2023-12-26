@@ -25,7 +25,7 @@ namespace Pfim.Skia
                 var stride = image.Stride;
                 switch (image.Format)
                 {
-                    case ImageFormat.Rgb8:
+                    case ImageFormat.R8:
                         colorType = SKColorType.Gray8;
                         break;
                     case ImageFormat.R5g6b5:

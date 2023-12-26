@@ -74,7 +74,7 @@ namespace Pfim.ImageSharp
                     case ImageFormat.R5g6b5:
                         IS.Image.LoadPixelData<Bgr565>(newData, image.Width, image.Height).Save(fs, encoder);
                         break;
-                    case ImageFormat.Rgb8:
+                    case ImageFormat.R8:
                         IS.Image.LoadPixelData<L8>(newData, image.Width, image.Height).Save(fs, encoder);
                         break;
                     default:
