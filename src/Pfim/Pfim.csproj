@@ -1,18 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>YellowDogMan.Pfim</PackageId>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <Product>Pfim</Product>
-    <Description>A simple and fast .NET Standard image decoder for targa (.tga) and direct draw surface (.dds) images</Description>
+    <Description>Fork of, a simple and fast .NET Standard image decoder for targa (.tga) and direct draw surface (.dds) images</Description>
     <Copyright>Nick Babcock</Copyright>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Authors>Nick Babcock</Authors>
+    <Authors>Nick Babcock, Yellow Dog Man Studios</Authors>
     <PackageTags>image-decoding;tga;targa;dds</PackageTags>
     <PackageLicenseUrl>https://raw.githubusercontent.com/nickbabcock/Pfim/master/LICENSE.txt</PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageProjectUrl>https://nickbabcock.github.io/Pfim/</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/nickbabcock/Pfim</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Yellow-Dog-Man/Pfim</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Yellow-Dog-Man/Pfim</RepositoryUrl>
     <PackageIconUrl>https://raw.githubusercontent.com/nickbabcock/Pfim/master/analysis/logo.png?raw=true</PackageIconUrl>
 
     <AssemblyOriginatorKeyFile>..\pfim.snk</AssemblyOriginatorKeyFile>
